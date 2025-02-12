@@ -10,6 +10,8 @@ class InferlessPythonModel:
 
   def infer(self, inputs):
     prompts = inputs["prompt"]
+    if prompts == "/check":
+      return {"generated_text": "OK"}
     temperature = inputs.get("temperature",0.7)
     top_p = inputs.get("top_p",0.1)
     repetition_penalty = inputs.get("repetition_penalty",1.18)
